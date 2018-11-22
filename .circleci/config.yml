@@ -2,7 +2,6 @@ version: 2
 
 jobs:
   build:
-    machine: true
     docker:
       - image: circleci/clojure:lein-2.8.1
 
@@ -28,5 +27,8 @@ jobs:
       - run: lein test
 
       - run: lein uberjar
+
+      - setup_remote_docker:
+          docker_layer_caching: true
 
       - run: docker build -t eduardomrb/clj-email-reply-parser .
