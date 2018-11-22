@@ -27,3 +27,5 @@ jobs:
       - run: lein test
 
       - run: lein uberjar
+
+      - run: docker build -t eduardomrb/clj-email-reply-parser .
